@@ -2,22 +2,39 @@ import streamlit as st
 import pandas as pd
 import joblib
 
+# -----------------------------
+# Page Configuration
+# -----------------------------
 st.set_page_config(
     page_title="Real Estate Buyer Segmentation",
     page_icon="🏠",
     layout="wide"
 )
 
+# -----------------------------
+# Title
+# -----------------------------
 st.title("🏠 Machine Learning Based Buyer Segmentation")
-st.subheader("Real Estate Market Intelligence System")
+st.subheader("Investment Profiling for Real Estate Market Intelligence")
 
-st.write(
-    "This application predicts buyer segments using a trained "
-    "Machine Learning model."
-)
+st.markdown("""
+This application demonstrates a machine learning framework for buyer segmentation
+using K-Means Clustering to analyze investment behaviour in the real estate market.
+""")
 
-# Load model and scaler
-model = joblib.load("kmeans_model.pkl")
+# -----------------------------
+# Load Dataset
+# -----------------------------
+df = pd.read_csv("buyer_market_intelligence.csv")
+
+# Load trained files
+kmeans = joblib.load("kmeans_model.pkl")
 scaler = joblib.load("scaler.pkl")
 
-st.success("✅ Model and Scaler loaded successfully!")
+st.success("Project loaded successfully!")
+
+st.write("### Dataset Preview")
+st.dataframe(df.head())
+
+st.write("### Dataset Shape")
+st.write(df.shape)
