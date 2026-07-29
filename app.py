@@ -25,7 +25,7 @@ using K-Means Clustering to analyze investment behaviour in the real estate mark
 # -----------------------------
 # Load Dataset
 # -----------------------------
-df = pd.read_csv("buyer_market_intelligence.csv", sep=None, engine="python")
+df = pd.read_csv("buyer_market_intelligence.csv")
 st.write("Columns detected:")
 st.write(df.columns.tolist())
 
